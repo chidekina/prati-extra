@@ -192,10 +192,10 @@ const programaVidaSaudavel = () => {
     else if (atividadeHoraMes <= 20) pontosHora = 5;
     else pontosHora = 10;
 
-    const pontosTotal = atividadeHoraMes * pontosHora;
-    const faturamento = (pontosTotal * 0.05).toFixed(2);
+    const faturamento = atividadeHoraMes * pontosHora;
 
-    console.log(`Parabéns! Você conseguiu um total de ${pontosTotal} pontos. Economizando um total de R$${faturamento}`);
+    
+    
 };
 
 // 9. Desenvolva um aplicativo que leia o salário e o sexo de vários funcionários. No final,

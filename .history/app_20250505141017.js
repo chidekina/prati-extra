@@ -155,24 +155,14 @@ const numeroSorteado = () => {
 const aluguelDeCarros = () => {
     const tipoDeCarro = readline.question("Qual tipo de carro você quer? (popular ou luxo)");
     const kmsPercorridos = Number(readline.question("Quantos kms foram percorrido?"));
-    let precoKm = 0;
+    let precoTotal = 0;
 
     switch (tipoDeCarro) {
         case 'popular': 
-        precoKm = kmsPercorridos > 100 ? 0.10 : 0.20;
-        break;
-
-        case 'luxo':
-        precoKm = kmsPercorridos > 200 ? 0.25 : 0.30;
-        break;
-
-        default:
-        console.log("Escolha um carro válido (popular ou luxo)");
-        return;
+        if (kmsPercorridos > 1) console.log(`O preço do km foi R$${0.25} e você pagará um total de R$${(kmsPercorridos * 0.25).toFixed(2)}`);
+        else if (kmsPercorridos > 100)
+        
     }
-
-    const precoTotal = (kmsPercorridos * precoKm).toFixed(2);
-    console.log(`O preço do km foi R$${precoKm} e você pagará um total de R$${precoTotal}`);
 };
 
 // 8. Um programa de vida saudável quer dar pontos por atividades físicas realizadas que
@@ -184,20 +174,6 @@ const aluguelDeCarros = () => {
 // - A cada ponto ganho, o cliente fatura R$ 0,05 (5 centavos)
 // Faça um programa que leia quantas horas de atividade uma pessoa teve por mês.
 // Calcule e mostre quantos pontos ela teve e quanto dinheiro ela conseguiu ganhar.
-const programaVidaSaudavel = () => {
-    const atividadeHoraMes = Number(readline.question("Quantas horas de atividade fisica você praticou este mês?"));
-    let pontosHora = 0;
-
-    if ( atividadeHoraMes < 10) pontosHora = 2;
-    else if (atividadeHoraMes <= 20) pontosHora = 5;
-    else pontosHora = 10;
-
-    const pontosTotal = atividadeHoraMes * pontosHora;
-    const faturamento = (pontosTotal * 0.05).toFixed(2);
-
-    console.log(`Parabéns! Você conseguiu um total de ${pontosTotal} pontos. Economizando um total de R$${faturamento}`);
-};
-
 // 9. Desenvolva um aplicativo que leia o salário e o sexo de vários funcionários. No final,
 // mostre o total de salário pago aos homens e o total pago às mulheres. O programa vai
 // perguntar ao usuário se ele quer continuar ou não sempre que ler os dados de um

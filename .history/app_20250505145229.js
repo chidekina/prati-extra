@@ -185,17 +185,13 @@ const aluguelDeCarros = () => {
 // Faça um programa que leia quantas horas de atividade uma pessoa teve por mês.
 // Calcule e mostre quantos pontos ela teve e quanto dinheiro ela conseguiu ganhar.
 const programaVidaSaudavel = () => {
-    const atividadeHoraMes = Number(readline.question("Quantas horas de atividade fisica você praticou este mês?"));
+    const atividadeHoraMes = readline.question("Quantas horas de atividade fisica você praticou este mês?");
     let pontosHora = 0;
 
     if ( atividadeHoraMes < 10) pontosHora = 2;
     else if (atividadeHoraMes <= 20) pontosHora = 5;
     else pontosHora = 10;
-
-    const pontosTotal = atividadeHoraMes * pontosHora;
-    const faturamento = (pontosTotal * 0.05).toFixed(2);
-
-    console.log(`Parabéns! Você conseguiu um total de ${pontosTotal} pontos. Economizando um total de R$${faturamento}`);
+    
 };
 
 // 9. Desenvolva um aplicativo que leia o salário e o sexo de vários funcionários. No final,
