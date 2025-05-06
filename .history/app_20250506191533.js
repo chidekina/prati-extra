@@ -422,7 +422,6 @@ const horario = () => {
       console.log("Entrada inválida. Tente novamente.");
       continue;
     }
-     if (horas )
     horarios.push
   }
 }

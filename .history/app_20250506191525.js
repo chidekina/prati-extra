@@ -422,8 +422,7 @@ const horario = () => {
       console.log("Entrada inválida. Tente novamente.");
       continue;
     }
-     if (horas )
-    horarios.push
+    
   }
 }
 // 20. Uma indústria faz a folha mensal de pagamentos de seus 80 empregados baseada

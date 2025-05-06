@@ -415,15 +415,7 @@ const horario = () => {
   const horarios = [];
 
   while (horarios.length <= 5) {
-    const entrada = readline.question("Digite um horario no formato HH.MM.SS");
-    const [horas, minutos, segundos] = entrada.split('.').map(Number);
-
-    if(isNaN(horas) || isNaN(minutos) || isNaN(segundos)) {
-      console.log("Entrada inválida. Tente novamente.");
-      continue;
-    }
-     if (horas )
-    horarios.push
+    const 
   }
 }
 // 20. Uma indústria faz a folha mensal de pagamentos de seus 80 empregados baseada

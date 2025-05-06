@@ -421,8 +421,7 @@ const horario = () => {
     if(isNaN(horas) || isNaN(minutos) || isNaN(segundos)) {
       console.log("Entrada inválida. Tente novamente.");
       continue;
-    }
-     if (horas )
+    } else if (horas )
     horarios.push
   }
 }
