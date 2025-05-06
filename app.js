@@ -202,17 +202,117 @@ const programaVidaSaudavel = () => {
 // mostre o total de salário pago aos homens e o total pago às mulheres. O programa vai
 // perguntar ao usuário se ele quer continuar ou não sempre que ler os dados de um
 // funcionário.
+const mediaSalarial = () => {
+  const salariosM = [];
+  const salariosF = [];
+
+  while (true) {
+    const registro = readline.question("Deseja registrar um salario? (sim/ não)").toLowerCase();
+
+    if (registro === "não") break;
+    if (registro !== "sim") {
+      console.log("Digite uma opção válida.");
+      continue;
+    }
+
+    let sexo = readline.question("Qual o sexo? (M ou F) ").toUpperCase();
+    let salario = Number(readline.question("Qual o salário? "));
+
+    if (sexo !== "M" && sexo !== "F") {
+      console.log("Sexo inválido. Digite M ou F");
+      continue;
+    }
+    if (sexo === "M") {
+      salariosM.push(salario);
+    } else if (sexo === "F") {
+      salariosF.push(salario);
+    }
+  }
+
+  const salarioTotalF = salariosF.reduce((acm, n) => acm + n, 0);
+  const salarioTotalM = salariosM.reduce((acm, n) => acm + n, 0);
+  const salarioMedioF = salariosF.length ? salarioTotalF / salariosF.length : 0;
+  const salarioMedioM = salariosM.length ? salarioTotalM / salariosM.length : 0;
+  // Removed recursive call to avoid infinite loop
+
+  console.log(`\nSalário total das mulheres: R$${salarioTotalF.toFixed(2)} | Média: R$${salarioMedioF.toFixed(2)}`);
+  console.log(`Salário total dos homens: R$${salarioTotalM.toFixed(2)} | Média: R$${salarioMedioM.toFixed(2)}`);
+};
+
 // 10. Crie um programa usando a estrutura “faça enquanto” que leia vários números. A
 // cada laço, pergunte se o usuário quer continuar ou não. No final, mostre na tela:
 // a) O somatório entre todos os valores;
 // b) Qual foi o menor valor digitado;
 // c) A média entre todos os valores;
 // d) Quantos valores são pares.
+
+const facaEnquanto = () => {
+  const listaNumeros = [];
+
+  while (true) {
+    const registro = readline.question("Deseja registrar um número na lista? sim/não ");
+
+    if (registro === "não") break;
+    if (registro !== "sim") {
+      console.log("Digite uma opção válida");
+      continue;
+    }
+
+    const numeroRegistrado = Number(readline.question("Digite um número. "));
+
+    if (!isNaN(numeroRegistrado)) listaNumeros.push(numeroRegistrado);
+    else {
+      console.log("Digite um número válido");
+      continue;
+    }
+
+    const somaTotal = listaNumeros.reduce((acm, n) => acm + n, 0);
+    const menorNumero = listaNumeros.sort((a, b) => a - b)[0];
+    const media = somaTotal / listaNumeros.length;
+    const numerosPares = listaNumeros.filter((n) => n % 2 === 0);
+
+    console.log(`\n Soma dos valores: ${somaTotal}`);
+    console.log(`Menor número: ${menorNumero}`);
+    console.log(`Media dos números: ${media}`);
+    console.log(`Números pares: ${numerosPares}`);
+  }
+};
 // 11. Desenvolva um programa que leia o primeiro termo e a razão de uma PA (Progressão
 // Aritmética), mostrando na tela os 10 primeiros elementos da PA e a soma entre todos os
 // valores da sequência.
+const progressaoAritmetica = () => {
+  const primeiroTermo = Number(readline.question("Digite o primeiro termo da PA. "));
+  if (isNaN(primeiroTermo)) {
+    console.log("Digite um número válido");
+    return;
+  }
+  const razao = Number(readline.question("Digite a razão da PA. "));
+  if (isNaN(razao)) {
+    console.log("Digite um número válido");
+    return;
+  }
+  const listaPA = [primeiroTermo];
+
+  let i = primeiroTermo + razao;
+  while (listaPA.length <= 10) {
+    listaPA.push(i);
+
+    i += razao;
+  }
+  console.log(listaPA);
+};
+progressaoAritmetica();
 // 12. Faça um programa que mostre os 10 primeiros elementos da Sequência de Fibonacci.
 // Ex.: 1, 1, 2, 3, 5, 8, 13, 21.
+const sequenciaFibronacci = () => {
+  const fibronacci = [0, 1];
+
+  for (let i = 2; i < 10; i++) {
+    fibronacci[i] = fibronacci[i - 2] + fibronacci[i - 1];
+  }
+  console.log(fibronacci);
+};
+
 // 13. Crie um programa que preencha automaticamente (usando lógica, não apenas
 // atribuindo diretamente) um vetor numérico com 15 posições com os primeiros elementos
 // da sequência de Fibonacci.
@@ -223,6 +323,18 @@ const programaVidaSaudavel = () => {
 // 15. Desenvolva um programa que leia 10 números inteiros e guarde-os em um vetor. No
 // final, mostre quais são os números pares que foram digitados e em que posições eles
 // estão armazenados.
+const numerosPares = () => {
+  const listaNumeros = [];
+  for (let i = 0; i < 10; i++) {
+    listaNumeros.push(Number(readline.question(`Digite o numero ${i}:`)));
+  }
+
+  console.log("Números pares e suas posições:");
+
+  listaNumeros.forEach((num, i) => {
+    if (num % 2 === 0) console.log(`Número ${num} na posição ${i}`);
+  });
+};
 // 16. Crie uma lógica que preencha um vetor de 20 posições com números aleatórios
 // (entre 0 e 99) gerados pelo computador. Logo em seguida, mostre os números gerados e
 // depois coloque o vetor em ordem crescente, mostrando no final os valores ordenados.
