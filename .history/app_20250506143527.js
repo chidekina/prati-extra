@@ -299,7 +299,7 @@ const progressaoAritmetica = () => {
   }
   console.log(listaPA);
 };
-
+progressaoAritmetica();
 // 12. Faça um programa que mostre os 10 primeiros elementos da Sequência de Fibonacci.
 // Ex.: 1, 1, 2, 3, 5, 8, 13, 21.
 const sequenciaFibronacci = () => {
@@ -361,54 +361,16 @@ const numerosPares = () => {
 // 16. Crie uma lógica que preencha um vetor de 20 posições com números aleatórios
 // (entre 0 e 99) gerados pelo computador. Logo em seguida, mostre os números gerados e
 // depois coloque o vetor em ordem crescente, mostrando no final os valores ordenados.
-const vetorAleatorio = () => {
-  const listaNumeros = [];
-  while (listaNumeros.length <= 20) {
-    const numeroAleatorio = Math.floor(Math.random() * 99) + 1;
-    listaNumeros.push(numeroAleatorio);
-  }
-  console.log(listaNumeros.sort((a, b) => a - b));
-};
 
+const vetorAleatorio = () => {
+  const 
+  while ()
+}
 // 17. Crie um programa que leia o nome e a idade de 9 pessoas e guarde esses valores em
 // dois vetores, em posições relacionadas. No final, mostre uma listagem contendo apenas
 // os dados das pessoas menores de idade.
-const menoresDeIdade = () => {
-  const listaPessoas = [];
-
-  while (listaPessoas.length < 9) {
-    const entrada = readline.question("Digite o nome e a idade da pessoa, separado por virgula");
-    const [nome, idadeStr] = entrada.split(',').map(item => item.trim());
-    const idade = Number(idadeStr);
-
-    if (!nome || isNaN(idade)) {
-      console.log("Entrada inválida. Tente novamente.");
-      continue;
-    }
-
-    listaPessoas.push({ nome, idade });
-  }
-
-  console.log("\nPessoas menores de idade:");
-  listaPessoas
-    .filter(pessoa => pessoa.idade < 18)
-    .forEach(pessoa => console.log(`Nome: ${pessoa.nome}, Idade? ${pessoa.idade}`));
-};
-
 // 18. Crie um registro com o nome do funcionário, cargo e salário. Leia este registro para
 // um funcionário e ao final escreva o conteúdo do registro.
-const registroFuncionario = () => {
-  const entrada = readline.question("Digite o nome, cargo e salario do funcionário separado por virgula.");
-  const [nome, cargo, salarioStr] = entrada.split(',').map(item => item.trim());
-  const salario = Number(salarioStr);
-
-  if (!nome || !cargo || isNaN(salario)) console.log("Entrada inválida. Tente novamente.");
-
-
-  console.log(`Nome: ${nome}, Cargo: ${cargo}, Salário: R$${salario.toFixed(2)}`);
-}
-
-registroFuncionario();
 // 19. Escrever um programa para ler 5 horários. Validar cada horário fornecendo através de
 // repetição. Escrever cada um deles no formato HH.MM.SS.
 // 20. Uma indústria faz a folha mensal de pagamentos de seus 80 empregados baseada

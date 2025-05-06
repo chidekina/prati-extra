@@ -299,7 +299,7 @@ const progressaoAritmetica = () => {
   }
   console.log(listaPA);
 };
-
+progressaoAritmetica();
 // 12. Faça um programa que mostre os 10 primeiros elementos da Sequência de Fibonacci.
 // Ex.: 1, 1, 2, 3, 5, 8, 13, 21.
 const sequenciaFibronacci = () => {
@@ -377,38 +377,13 @@ const menoresDeIdade = () => {
   const listaPessoas = [];
 
   while (listaPessoas.length < 9) {
-    const entrada = readline.question("Digite o nome e a idade da pessoa, separado por virgula");
-    const [nome, idadeStr] = entrada.split(',').map(item => item.trim());
-    const idade = Number(idadeStr);
-
-    if (!nome || isNaN(idade)) {
-      console.log("Entrada inválida. Tente novamente.");
-      continue;
-    }
-
-    listaPessoas.push({ nome, idade });
+    const entrada = readline.question("Digite o nome e a idade da pessoa, separado por virgula").split(',');
+    const [nome, idade] = entrada.split(',').map(item => item.trim());
   }
-
-  console.log("\nPessoas menores de idade:");
-  listaPessoas
-    .filter(pessoa => pessoa.idade < 18)
-    .forEach(pessoa => console.log(`Nome: ${pessoa.nome}, Idade? ${pessoa.idade}`));
 };
 
 // 18. Crie um registro com o nome do funcionário, cargo e salário. Leia este registro para
 // um funcionário e ao final escreva o conteúdo do registro.
-const registroFuncionario = () => {
-  const entrada = readline.question("Digite o nome, cargo e salario do funcionário separado por virgula.");
-  const [nome, cargo, salarioStr] = entrada.split(',').map(item => item.trim());
-  const salario = Number(salarioStr);
-
-  if (!nome || !cargo || isNaN(salario)) console.log("Entrada inválida. Tente novamente.");
-
-
-  console.log(`Nome: ${nome}, Cargo: ${cargo}, Salário: R$${salario.toFixed(2)}`);
-}
-
-registroFuncionario();
 // 19. Escrever um programa para ler 5 horários. Validar cada horário fornecendo através de
 // repetição. Escrever cada um deles no formato HH.MM.SS.
 // 20. Uma indústria faz a folha mensal de pagamentos de seus 80 empregados baseada

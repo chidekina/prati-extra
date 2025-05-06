@@ -299,7 +299,7 @@ const progressaoAritmetica = () => {
   }
   console.log(listaPA);
 };
-
+progressaoAritmetica();
 // 12. Faça um programa que mostre os 10 primeiros elementos da Sequência de Fibonacci.
 // Ex.: 1, 1, 2, 3, 5, 8, 13, 21.
 const sequenciaFibronacci = () => {
@@ -402,13 +402,8 @@ const registroFuncionario = () => {
   const [nome, cargo, salarioStr] = entrada.split(',').map(item => item.trim());
   const salario = Number(salarioStr);
 
-  if (!nome || !cargo || isNaN(salario)) console.log("Entrada inválida. Tente novamente.");
-
-
-  console.log(`Nome: ${nome}, Cargo: ${cargo}, Salário: R$${salario.toFixed(2)}`);
+  if (!nome || !cargo )
 }
-
-registroFuncionario();
 // 19. Escrever um programa para ler 5 horários. Validar cada horário fornecendo através de
 // repetição. Escrever cada um deles no formato HH.MM.SS.
 // 20. Uma indústria faz a folha mensal de pagamentos de seus 80 empregados baseada

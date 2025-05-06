@@ -115,7 +115,9 @@ const joKenPo = () => {
       console.log("\x1b[34mEmpate!\x1b[0m");
       return;
     }
-    if ((usuario === 0 && computador === 2) || (usuario === 1 && computador === 0) || (usuario === 2 && computador === 1)) {
+    if (usuario === 0 && computador === 2 ||
+       usuario === 1 && computador === 0 ||
+        usuario === 2 && computador === 1) {
       console.log("\x1b[32mParabéns!! Você venceu.\x1b[0m");
       return;
     } else {
@@ -151,26 +153,26 @@ const numeroSorteado = () => {
 // - Até 200 Km percorridos: R$ 0,30 por Km
 // - Acima de 200 Km percorridos: R$ 0,25 por Km
 const aluguelDeCarros = () => {
-  const tipoDeCarro = readline.question("Qual tipo de carro você quer? (popular ou luxo)");
-  const kmsPercorridos = Number(readline.question("Quantos kms foram percorrido?"));
-  let precoKm = 0;
+    const tipoDeCarro = readline.question("Qual tipo de carro você quer? (popular ou luxo)");
+    const kmsPercorridos = Number(readline.question("Quantos kms foram percorrido?"));
+    let precoKm = 0;
 
-  switch (tipoDeCarro) {
-    case "popular":
-      precoKm = kmsPercorridos > 100 ? 0.1 : 0.2;
-      break;
+    switch (tipoDeCarro) {
+        case 'popular': 
+        precoKm = kmsPercorridos > 100 ? 0.10 : 0.20;
+        break;
 
-    case "luxo":
-      precoKm = kmsPercorridos > 200 ? 0.25 : 0.3;
-      break;
+        case 'luxo':
+        precoKm = kmsPercorridos > 200 ? 0.25 : 0.30;
+        break;
 
-    default:
-      console.log("Escolha um carro válido (popular ou luxo)");
-      return;
-  }
+        default:
+        console.log("Escolha um carro válido (popular ou luxo)");
+        return;
+    }
 
-  const precoTotal = (kmsPercorridos * precoKm).toFixed(2);
-  console.log(`O preço do km foi R$${precoKm} e você pagará um total de R$${precoTotal}`);
+    const precoTotal = (kmsPercorridos * precoKm).toFixed(2);
+    console.log(`O preço do km foi R$${precoKm} e você pagará um total de R$${precoTotal}`);
 };
 
 // 8. Um programa de vida saudável quer dar pontos por atividades físicas realizadas que
@@ -183,17 +185,17 @@ const aluguelDeCarros = () => {
 // Faça um programa que leia quantas horas de atividade uma pessoa teve por mês.
 // Calcule e mostre quantos pontos ela teve e quanto dinheiro ela conseguiu ganhar.
 const programaVidaSaudavel = () => {
-  const atividadeHoraMes = Number(readline.question("Quantas horas de atividade fisica você praticou este mês?"));
-  let pontosHora = 0;
+    const atividadeHoraMes = Number(readline.question("Quantas horas de atividade fisica você praticou este mês?"));
+    let pontosHora = 0;
 
-  if (atividadeHoraMes < 10) pontosHora = 2;
-  else if (atividadeHoraMes <= 20) pontosHora = 5;
-  else pontosHora = 10;
+    if ( atividadeHoraMes < 10) pontosHora = 2;
+    else if (atividadeHoraMes <= 20) pontosHora = 5;
+    else pontosHora = 10;
 
-  const pontosTotal = atividadeHoraMes * pontosHora;
-  const faturamento = (pontosTotal * 0.05).toFixed(2);
+    const pontosTotal = atividadeHoraMes * pontosHora;
+    const faturamento = (pontosTotal * 0.05).toFixed(2);
 
-  console.log(`Parabéns! Você conseguiu um total de ${pontosTotal} pontos. Economizando um total de R$${faturamento}`);
+    console.log(`Parabéns! Você conseguiu um total de ${pontosTotal} pontos. Economizando um total de R$${faturamento}`);
 };
 
 // 9. Desenvolva um aplicativo que leia o salário e o sexo de vários funcionários. No final,
@@ -299,7 +301,7 @@ const progressaoAritmetica = () => {
   }
   console.log(listaPA);
 };
-
+progressaoAritmetica();
 // 12. Faça um programa que mostre os 10 primeiros elementos da Sequência de Fibonacci.
 // Ex.: 1, 1, 2, 3, 5, 8, 13, 21.
 const sequenciaFibronacci = () => {
@@ -332,16 +334,9 @@ const listaNomesInverso = () => {
     let i = 1;
     const nome = readline.question(`Digite o nome de numero ${i}`);
 
-    if (nome.length < 2) {
-      console.log("Digite um nome válido");
-      continue;
-    }
-    listaNomes.push(nome);
-    i++;
+    if 
   }
-
-  console.log(listaNomes.reverse());
-};
+}
 
 // 15. Desenvolva um programa que leia 10 números inteiros e guarde-os em um vetor. No
 // final, mostre quais são os números pares que foram digitados e em que posições eles
@@ -361,54 +356,11 @@ const numerosPares = () => {
 // 16. Crie uma lógica que preencha um vetor de 20 posições com números aleatórios
 // (entre 0 e 99) gerados pelo computador. Logo em seguida, mostre os números gerados e
 // depois coloque o vetor em ordem crescente, mostrando no final os valores ordenados.
-const vetorAleatorio = () => {
-  const listaNumeros = [];
-  while (listaNumeros.length <= 20) {
-    const numeroAleatorio = Math.floor(Math.random() * 99) + 1;
-    listaNumeros.push(numeroAleatorio);
-  }
-  console.log(listaNumeros.sort((a, b) => a - b));
-};
-
 // 17. Crie um programa que leia o nome e a idade de 9 pessoas e guarde esses valores em
 // dois vetores, em posições relacionadas. No final, mostre uma listagem contendo apenas
 // os dados das pessoas menores de idade.
-const menoresDeIdade = () => {
-  const listaPessoas = [];
-
-  while (listaPessoas.length < 9) {
-    const entrada = readline.question("Digite o nome e a idade da pessoa, separado por virgula");
-    const [nome, idadeStr] = entrada.split(',').map(item => item.trim());
-    const idade = Number(idadeStr);
-
-    if (!nome || isNaN(idade)) {
-      console.log("Entrada inválida. Tente novamente.");
-      continue;
-    }
-
-    listaPessoas.push({ nome, idade });
-  }
-
-  console.log("\nPessoas menores de idade:");
-  listaPessoas
-    .filter(pessoa => pessoa.idade < 18)
-    .forEach(pessoa => console.log(`Nome: ${pessoa.nome}, Idade? ${pessoa.idade}`));
-};
-
 // 18. Crie um registro com o nome do funcionário, cargo e salário. Leia este registro para
 // um funcionário e ao final escreva o conteúdo do registro.
-const registroFuncionario = () => {
-  const entrada = readline.question("Digite o nome, cargo e salario do funcionário separado por virgula.");
-  const [nome, cargo, salarioStr] = entrada.split(',').map(item => item.trim());
-  const salario = Number(salarioStr);
-
-  if (!nome || !cargo || isNaN(salario)) console.log("Entrada inválida. Tente novamente.");
-
-
-  console.log(`Nome: ${nome}, Cargo: ${cargo}, Salário: R$${salario.toFixed(2)}`);
-}
-
-registroFuncionario();
 // 19. Escrever um programa para ler 5 horários. Validar cada horário fornecendo através de
 // repetição. Escrever cada um deles no formato HH.MM.SS.
 // 20. Uma indústria faz a folha mensal de pagamentos de seus 80 empregados baseada
