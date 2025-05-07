@@ -406,11 +406,10 @@ const registroFuncionario = () => {
 
 
   console.log(`Nome: ${nome}, Cargo: ${cargo}, Salário: R$${salario.toFixed(2)}`);
-}
+};
 
 // 19. Escrever um programa para ler 5 horários. Validar cada horário fornecendo através de
 // repetição. Escrever cada um deles no formato HH.MM.SS.
-
 const horario = () => {
   const horarios = [];
 
@@ -418,14 +417,24 @@ const horario = () => {
     const entrada = readline.question("Digite um horario no formato HH.MM.SS");
     const [horas, minutos, segundos] = entrada.split('.').map(Number);
 
-    if(isNaN(horas) || isNaN(minutos) || isNaN(segundos)) {
+    if (isNaN(horas) || isNaN(minutos) || isNaN(segundos)) {
       console.log("Entrada inválida. Tente novamente.");
       continue;
     }
-     if (horas )
-    horarios.push
-  }
-}
+    if (horas < 0 || horas > 24 || minutos < 0 || minutos > 59 || segundos < 0 || segundos > 59) {
+      console.log("Digite um horário válido.");
+      continue;
+    }
+    if (horas === 24) horas = 0o0;
+    horarios.push({ horas, minutos, segundos });
+  };
+
+  console.log('\nHorários registrados:');
+  horarios.forEach(horario => {
+    console.log(`${horario.horas}.${horario.minutos}.${horario.segundos}`);
+  })
+};
+
 // 20. Uma indústria faz a folha mensal de pagamentos de seus 80 empregados baseada
 // no seguinte: existe uma tabela com os dados de cada funcionalidade: matrícula, nome e
 // salário bruto. Escreva um programa que leia e processe a tabela e emita (escreva na
@@ -437,6 +446,20 @@ const horario = () => {
 // Salário líquido:
 // (Dicas: desconto de 12%, salário líquido é a diferença entre salário bruto e a redução do
 // INSS).
+
+const folhaMensalIndividual = () => {
+  while (true) {
+    const registro = readline.question("Escreva a matricula, nome e salário bruto do funcionário (separado por ", " e o nome e sobrenome por espaço)");
+    const [matriculaStr, nome, salarioBrutoStr] = registro.split(',');
+    const matricula = parseFloat(matriculaStr);
+    const salario = parseFloat(salarioBrutoStr);
+    const nomeCompleto = nome.split(' ');
+
+    if (isNaN(matricula) || nomeCompleto.length <= 1 || isNaN(salario)) {
+      
+    }
+  }
+}
 // 21. Faça uma função que recebe, por parâmetro, a altura (alt) e o sexo de uma pessoa e
 // retorna o seu peso ideal. Para homens, calcular o peso ideal usando a fórmula: peso ideal
 // = 72.7 x alt - 58 e, para mulheres, peso ideal = 62.1 x alt - 44.7.
