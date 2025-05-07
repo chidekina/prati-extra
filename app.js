@@ -449,16 +449,29 @@ const horario = () => {
 
 const folhaMensalIndividual = () => {
   while (true) {
-    const registro = readline.question("Escreva a matricula, nome e salário bruto do funcionário (separado por ", " e o nome e sobrenome por espaço)");
-    const [matriculaStr, nome, salarioBrutoStr] = registro.split(',');
+    const entrada = readline.question("Escreva a matricula, nome e salário bruto do funcionário (separado por ", " e o nome e sobrenome por espaço)");
+    const [matriculaStr, nome, salarioBrutoStr] = entrada.split(',');
     const matricula = parseFloat(matriculaStr);
     const salario = parseFloat(salarioBrutoStr);
     const nomeCompleto = nome.split(' ');
 
     if (isNaN(matricula) || nomeCompleto.length <= 1 || isNaN(salario)) {
-      
+      console.log("Entrada inválida. Tente novamente.");
+      continue;
     }
+
+    const deducao = salario * 0.15;
+    const salarioLiquido = salario - deducao;
+    break;
   }
+
+  console.log(`
+    Matrícula: ${matricula}\n
+    Nome: ${nomeCompleto}\n
+    Salário Bruto: ${salario}\n
+    Dedução INSS: ${deducao}\n
+    Salário Líquido:${salarioLiquido}
+     `);
 }
 // 21. Faça uma função que recebe, por parâmetro, a altura (alt) e o sexo de uma pessoa e
 // retorna o seu peso ideal. Para homens, calcular o peso ideal usando a fórmula: peso ideal
