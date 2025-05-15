@@ -473,7 +473,6 @@ const folhaMensalIndividual = () => {
 // 21. Faça uma função que recebe, por parâmetro, a altura (alt) e o sexo de uma pessoa e
 // retorna o seu peso ideal. Para homens, calcular o peso ideal usando a fórmula: peso ideal
 // = 72.7 x alt - 58 e, para mulheres, peso ideal = 62.1 x alt - 44.7.
-
 const pesoIdeal = (alt, sexo) => {
   formulaPeso = 0;
 
@@ -494,27 +493,10 @@ const pesoIdeal = (alt, sexo) => {
 // 22. A prefeitura de uma cidade fez uma pesquisa entre os seus habitantes, coletando
 // dados sobre o salário e número de filhos. Faça uma função que leia esses dados para um
 // número não determinado de pessoas e retorne a média de salário da população, a
+
+
 // média do número de filhos, o maior salário e o percentual de pessoas com salário até R$
 // 350,00.
-
-const pesquisaHabitantes = (salarios, nFilhos) => {
-  listaSalarios = salarios.split(",");
-  listaNFilhos = nFilhos.split(",");
-
-  salarioTotal = listaSalarios.reduce((acm, n) => acm + n, 0);
-  salarioMedio = salarioTotal / listaSalarios.length;
-  totalFilhos = listaNFilhos.reduce((acm, n) => acm + n, 0);
-  mediaFilhos = totalFilhos / listaNFilhos.length;
-  numPessoasSalarioMin = listaSalarios.filter((n) => n <= 350).length;
-  salarioMinPercent = (listaSalarios.filter((n) => n <= 350).length / listaSalarios.length) * 100;
-  maiorSalario = listaSalarios.sort((a, b) => b - a)[0];
-
-  console.log(`Salario medio total: R$${salarioMedio.toFixed(2)}`);
-  console.log(`Media de numero de filhos: ${mediaFilhos.floor()}`);
-  console.log(`Maior salario: R$${maiorSalario.toFixed(2)}`);
-  console.log(`Pessoas com salario ate R$350,00: ${salarioMinPercent.toFixed(2)}%`);
-  
-};
 // 23. Criar e imprimir a matriz identidade MI[1..7,1..7] em que todos os elementos da
 // diagonal principal são iguais a 1 e os demais são nulos.
 // 24. Dada uma matriz M[1..6,1..8], criar um vetor C que contenha, em cada posição, a

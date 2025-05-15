@@ -378,7 +378,7 @@ const menoresDeIdade = () => {
 
   while (listaPessoas.length < 9) {
     const entrada = readline.question("Digite o nome e a idade da pessoa, separado por virgula");
-    const [nome, idadeStr] = entrada.split(",").map((item) => item.trim());
+    const [nome, idadeStr] = entrada.split(',').map(item => item.trim());
     const idade = Number(idadeStr);
 
     if (!nome || isNaN(idade)) {
@@ -390,17 +390,20 @@ const menoresDeIdade = () => {
   }
 
   console.log("\nPessoas menores de idade:");
-  listaPessoas.filter((pessoa) => pessoa.idade < 18).forEach((pessoa) => console.log(`Nome: ${pessoa.nome}, Idade? ${pessoa.idade}`));
+  listaPessoas
+    .filter(pessoa => pessoa.idade < 18)
+    .forEach(pessoa => console.log(`Nome: ${pessoa.nome}, Idade? ${pessoa.idade}`));
 };
 
 // 18. Crie um registro com o nome do funcionário, cargo e salário. Leia este registro para
 // um funcionário e ao final escreva o conteúdo do registro.
 const registroFuncionario = () => {
   const entrada = readline.question("Digite o nome, cargo e salario do funcionário separado por virgula.");
-  const [nome, cargo, salarioStr] = entrada.split(",").map((item) => item.trim());
+  const [nome, cargo, salarioStr] = entrada.split(',').map(item => item.trim());
   const salario = Number(salarioStr);
 
   if (!nome || !cargo || isNaN(salario)) console.log("Entrada inválida. Tente novamente.");
+
 
   console.log(`Nome: ${nome}, Cargo: ${cargo}, Salário: R$${salario.toFixed(2)}`);
 };
@@ -412,7 +415,7 @@ const horario = () => {
 
   while (horarios.length <= 5) {
     const entrada = readline.question("Digite um horario no formato HH.MM.SS");
-    const [horas, minutos, segundos] = entrada.split(".").map(Number);
+    const [horas, minutos, segundos] = entrada.split('.').map(Number);
 
     if (isNaN(horas) || isNaN(minutos) || isNaN(segundos)) {
       console.log("Entrada inválida. Tente novamente.");
@@ -424,12 +427,12 @@ const horario = () => {
     }
     if (horas === 24) horas = 0o0;
     horarios.push({ horas, minutos, segundos });
-  }
+  };
 
-  console.log("\nHorários registrados:");
-  horarios.forEach((horario) => {
+  console.log('\nHorários registrados:');
+  horarios.forEach(horario => {
     console.log(`${horario.horas}.${horario.minutos}.${horario.segundos}`);
-  });
+  })
 };
 
 // 20. Uma indústria faz a folha mensal de pagamentos de seus 80 empregados baseada
@@ -447,10 +450,10 @@ const horario = () => {
 const folhaMensalIndividual = () => {
   while (true) {
     const entrada = readline.question("Escreva a matricula, nome e salário bruto do funcionário (separado por ", " e o nome e sobrenome por espaço)");
-    const [matriculaStr, nome, salarioBrutoStr] = entrada.split(",");
+    const [matriculaStr, nome, salarioBrutoStr] = entrada.split(',');
     const matricula = parseFloat(matriculaStr);
     const salario = parseFloat(salarioBrutoStr);
-    const nomeCompleto = nome.split(" ");
+    const nomeCompleto = nome.split(' ');
 
     if (isNaN(matricula) || nomeCompleto.length <= 1 || isNaN(salario)) {
       console.log("Entrada inválida. Tente novamente.");
@@ -469,52 +472,32 @@ const folhaMensalIndividual = () => {
     Dedução INSS: ${deducao}\n
     Salário Líquido:${salarioLiquido}
      `);
-};
+}
 // 21. Faça uma função que recebe, por parâmetro, a altura (alt) e o sexo de uma pessoa e
 // retorna o seu peso ideal. Para homens, calcular o peso ideal usando a fórmula: peso ideal
 // = 72.7 x alt - 58 e, para mulheres, peso ideal = 62.1 x alt - 44.7.
+// 22. A prefeitura de uma cidade fez uma pesquisa entre os seus habitantes, coletando
+// dados sobre o salário e número de filhos. Faça uma função que leia esses dados para um
+// número não determinado de pessoas e retorne a média de salário da população, a
 
 const pesoIdeal = (alt, sexo) => {
   formulaPeso = 0;
 
   switch (sexo) {
-    case "M":
-      formulaPeso = 72.7 * alt - 58;
-      break;
+    case 'M':
+    formulaPeso = 72.7 * alt - 58;
+    break;
 
-    case "F":
-      formulaPeso = 62.1 * alt - 44.7;
-      break;
-    default:
-      console.log("Entrada invalida. Tente novamente");
+    case 'F':
+    formulaPeso = 62.1 * alt - 44.7;
+    break;
+
+
   }
+}
 
-  return formulaPeso;
-};
-// 22. A prefeitura de uma cidade fez uma pesquisa entre os seus habitantes, coletando
-// dados sobre o salário e número de filhos. Faça uma função que leia esses dados para um
-// número não determinado de pessoas e retorne a média de salário da população, a
 // média do número de filhos, o maior salário e o percentual de pessoas com salário até R$
 // 350,00.
-
-const pesquisaHabitantes = (salarios, nFilhos) => {
-  listaSalarios = salarios.split(",");
-  listaNFilhos = nFilhos.split(",");
-
-  salarioTotal = listaSalarios.reduce((acm, n) => acm + n, 0);
-  salarioMedio = salarioTotal / listaSalarios.length;
-  totalFilhos = listaNFilhos.reduce((acm, n) => acm + n, 0);
-  mediaFilhos = totalFilhos / listaNFilhos.length;
-  numPessoasSalarioMin = listaSalarios.filter((n) => n <= 350).length;
-  salarioMinPercent = (listaSalarios.filter((n) => n <= 350).length / listaSalarios.length) * 100;
-  maiorSalario = listaSalarios.sort((a, b) => b - a)[0];
-
-  console.log(`Salario medio total: R$${salarioMedio.toFixed(2)}`);
-  console.log(`Media de numero de filhos: ${mediaFilhos.floor()}`);
-  console.log(`Maior salario: R$${maiorSalario.toFixed(2)}`);
-  console.log(`Pessoas com salario ate R$350,00: ${salarioMinPercent.toFixed(2)}%`);
-  
-};
 // 23. Criar e imprimir a matriz identidade MI[1..7,1..7] em que todos os elementos da
 // diagonal principal são iguais a 1 e os demais são nulos.
 // 24. Dada uma matriz M[1..6,1..8], criar um vetor C que contenha, em cada posição, a

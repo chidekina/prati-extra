@@ -512,7 +512,7 @@ const pesquisaHabitantes = (salarios, nFilhos) => {
   console.log(`Salario medio total: R$${salarioMedio.toFixed(2)}`);
   console.log(`Media de numero de filhos: ${mediaFilhos.floor()}`);
   console.log(`Maior salario: R$${maiorSalario.toFixed(2)}`);
-  console.log(`Pessoas com salario ate R$350,00: ${salarioMinPercent.toFixed(2)}%`);
+  console.log(`Pessoas com salario ate R$350,00: ${salarioMinPercent}`);
   
 };
 // 23. Criar e imprimir a matriz identidade MI[1..7,1..7] em que todos os elementos da

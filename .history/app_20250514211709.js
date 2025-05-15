@@ -506,13 +506,13 @@ const pesquisaHabitantes = (salarios, nFilhos) => {
   totalFilhos = listaNFilhos.reduce((acm, n) => acm + n, 0);
   mediaFilhos = totalFilhos / listaNFilhos.length;
   numPessoasSalarioMin = listaSalarios.filter((n) => n <= 350).length;
-  salarioMinPercent = (listaSalarios.filter((n) => n <= 350).length / listaSalarios.length) * 100;
+  salarioMinTotal = (listaSalarios.filter((n) => n <= 350).length / listaSalarios.length) * 100;
   maiorSalario = listaSalarios.sort((a, b) => b - a)[0];
 
   console.log(`Salario medio total: R$${salarioMedio.toFixed(2)}`);
   console.log(`Media de numero de filhos: ${mediaFilhos.floor()}`);
   console.log(`Maior salario: R$${maiorSalario.toFixed(2)}`);
-  console.log(`Pessoas com salario ate R$350,00: ${salarioMinPercent.toFixed(2)}%`);
+  console.log(`Pessoas com salario ate R$350,00`);
   
 };
 // 23. Criar e imprimir a matriz identidade MI[1..7,1..7] em que todos os elementos da

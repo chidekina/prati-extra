@@ -498,23 +498,17 @@ const pesoIdeal = (alt, sexo) => {
 // 350,00.
 
 const pesquisaHabitantes = (salarios, nFilhos) => {
-  listaSalarios = salarios.split(",");
-  listaNFilhos = nFilhos.split(",");
+  listaSalarios = salarios.split(',');
+  listaNFilhos = nFilhos.split(',');
 
   salarioTotal = listaSalarios.reduce((acm, n) => acm + n, 0);
-  salarioMedio = salarioTotal / listaSalarios.length;
+  salarioMedio = salarioTotal / listaSalarios.length
   totalFilhos = listaNFilhos.reduce((acm, n) => acm + n, 0);
   mediaFilhos = totalFilhos / listaNFilhos.length;
-  numPessoasSalarioMin = listaSalarios.filter((n) => n <= 350).length;
-  salarioMinPercent = (listaSalarios.filter((n) => n <= 350).length / listaSalarios.length) * 100;
-  maiorSalario = listaSalarios.sort((a, b) => b - a)[0];
-
-  console.log(`Salario medio total: R$${salarioMedio.toFixed(2)}`);
-  console.log(`Media de numero de filhos: ${mediaFilhos.floor()}`);
-  console.log(`Maior salario: R$${maiorSalario.toFixed(2)}`);
-  console.log(`Pessoas com salario ate R$350,00: ${salarioMinPercent.toFixed(2)}%`);
-  
-};
+  numPessoasSalarioMin = listaSalarios.filter(n => n <= 350).length;
+  salarioMinTotal = listaSalarios.filter(n => n <= 350).reduce((acm, n) => acm + n, 0);
+  maiorSalario = listaSalarios
+}
 // 23. Criar e imprimir a matriz identidade MI[1..7,1..7] em que todos os elementos da
 // diagonal principal são iguais a 1 e os demais são nulos.
 // 24. Dada uma matriz M[1..6,1..8], criar um vetor C que contenha, em cada posição, a
